@@ -1,16 +1,33 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
 
-  const addTodo = (todo) => {
+  useEffect(() => {
+    getAll();
+  }, []);
+
+  const addTodo = async (todo) => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
-    const newTodos = [todo, ...todos];
-    setTodos(newTodos);
+    await axios
+      .post("http://127.0.0.1:8080/todo/add", {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+        },
+        name: "name",
+        description: todo.text,
+        status: "rozwiazane",
+      })
+      .then((res) => {
+        todo.id = res.data.id;
+      });
+    await getAll();
   };
 
   const updateTodo = (todoId, newValue) => {
@@ -32,9 +49,30 @@ function TodoList() {
     setTodos(updatedTodo);
   };
 
-  const removeTodo = (id) => {
-    const removeArr = [...todos].filter((todo) => todo.id !== id);
-    setTodos(removeArr);
+  const removeTodo = async (id) => {
+    const url = `http://127.0.0.1:8080/todo/${id}`;
+    await axios.delete(`${url}`);
+    await getAll();
+  };
+
+  const getAll = async () => {
+    await axios
+      .get("http://127.0.0.1:8080/todo", {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+        },
+      })
+      .then((res) => {
+        const data = res.data;
+        const receivedTodos = [];
+        data.map((object) => {
+          console.log(object.id);
+          receivedTodos.push({ id: object.id, text: object.description });
+        });
+        console.log(receivedTodos);
+        setTodos(receivedTodos);
+      });
   };
 
   return (
