@@ -12,7 +12,7 @@ function TodoSearchDisplay({ todos }) {
 
   const [isOpen, setIsOpen] = useState(false);
   const list = todos.map((todo, index) => (
-    <div className="todo-row" key={index}>
+    <div key={index}>
       <div key={todo.id} onClick={() => handleClickOpen(todo)}>
         {todo.text}
       </div>

@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-
+import Button from "react-bootstrap/Button";
 function ButtonPanel(props) {
   const [input, setInput] = useState("");
-
 
   const handleFilterMK = (e) => {
     e.preventDefault();
@@ -30,25 +29,27 @@ function ButtonPanel(props) {
 
   return (
     <>
-      <div>
-        <button className="todo-button" onClick={handleFilterMK}>
-          MK
-        </button>
-        <button className="todo-button" onClick={handleFilterKasa}>
-          Kasa
-        </button>
-        <button className="todo-button"onClick={handleFilterAll}>Wszstkie</button>
-      </div>
-      <div>
-        <button className="todo-button">Wawa</button>
-        <button className="todo-button">Rybnik</button>
-        <button className="todo-button">Wszstkie</button>
-      </div>
-      <div>
-        <button className="todo-button">Wolne</button>
-        <button className="todo-button">Zajete</button>
-        <button className="todo-button">Wszstkie</button>
-      </div>
+<nav class="navbar navbar-light bg-light">
+  <form class="container-fluid justify-content-center">
+    <button class="btn btn-outline-success me-2" type="button">MK</button>
+    <button class="btn btn-outline-success me-2" type="button">KASY</button>
+    <button class="btn btn-outline-success me-2" type="button">WSZYSTKO</button>
+  </form>
+</nav>
+<nav class="navbar navbar-light bg-light">
+  <form class="container-fluid justify-content-center">
+    <button class="btn btn-outline-success me-2" type="button">WAWA</button>
+    <button class="btn btn-outline-success me-2" type="button">RYBNIK</button>
+    <button class="btn btn-outline-success me-2" type="button">WSZYSTKO</button>
+  </form>
+</nav>
+<nav class="navbar navbar-light bg-light">
+  <form class="container-fluid justify-content-center">
+    <button class="btn btn-outline-success me-2" type="button">WOLNE</button>
+    <button class="btn btn-outline-success me-2" type="button">ZAJETE</button>
+    <button class="btn btn-outline-success me-2" type="button">WSZYSTKO</button>
+  </form>
+</nav>
     </>
   );
 }

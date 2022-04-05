@@ -24,7 +24,7 @@ function TodoFormSearch(props) {
 
   return (
     <div>
-      <form className="todo-form" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Wyszukaj"
@@ -34,7 +34,7 @@ function TodoFormSearch(props) {
           onChange={handleChange}
           ref={inputRef}
         ></input>
-        <button className="todo-button">Wyszukaj</button>
+        <button>Wyszukaj</button>
       </form>
     </div>
   );
