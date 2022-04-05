@@ -77,8 +77,6 @@ function TodoList() {
 
   return (
     <div>
-      <h1>List zadan</h1>
-      <TodoForm onSubmit={addTodo}></TodoForm>
       <Todo
         todos={todos}
         completeTodo={completeTodo}

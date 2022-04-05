@@ -3,41 +3,44 @@ import TodoFormSearch from "./TodoFormSearch";
 import axios from "axios";
 import Todo from "./Todo";
 import TodoSearchDisplay from "./TodoSearchDisplay";
+import ButtonPanel from "./ButtonPanel";
 
 function TodoSearch() {
+  const [constat, setConstatnt] = useState([]);
   const [serach, setSearch] = useState([]);
+  const receivedTodos = [];
+  receivedTodos.push({ id: 0, type: 0, location: 0, text: "wawa-1" });
+  receivedTodos.push({ id: 1, type: 0, location: 0, text: "wawa-2" });
+  receivedTodos.push({ id: 2, type: 1, location: 0, text: "wawa-2-kasa-2" });
+  receivedTodos.push({ id: 3, type: 1, location: 0, text: "wawa-2-kasa-1" });
+  receivedTodos.push({ id: 4, type: 0, location: 1, text: "rybnik-1" });
+  const filtr = { filtrType: 0 };
 
+  useEffect(() => {
+    setConstatnt(receivedTodos)
+    setSearch(receivedTodos)
+    console.log("Default set");
+  }, []);
 
-  const searchQuery = async (todo) => {
-    if (!todo.text || /^\s*$/.test(todo.text)) {
-      return;
+  const handleFilter = () => {
+    setSearch("Constat:" + constat)
+    console.log("handle");
+    console.log(filtr);
+    if(filtr.filtrType === 2) {
+        setSearch(constat);
+        return
     }
-
-const searchReq = todo.text.toLowerCase();
-const url = `http://127.0.0.1:8080/todo/search/${searchReq}`;
-await axios.get(`${url}`).then((res) => {
-        const data = res.data;
-        const receivedTodos = [];
-        data.map((object) => {
-          console.log(object.id);
-          receivedTodos.push({ id: object.id, text: object.description });
-        });
-        console.log(receivedTodos);
-        setSearch(receivedTodos);
-}
-
-);
+    const updated = constat.filter((item) => item.type === filtr.filtrType);
+    console.log(updated);
+    setSearch(updated);
   };
-    return (
-<div>
-    <h1>Lista wyszukan</h1>
-    <TodoFormSearch onSubmit={searchQuery}></TodoFormSearch>
-      <TodoSearchDisplay
-        todos={serach}
-      ></TodoSearchDisplay>
-</div>
 
-);
+  return (
+    <div>
+      <ButtonPanel handleFilter={handleFilter} filtr={filtr}></ButtonPanel>
+      <TodoSearchDisplay todos={serach}></TodoSearchDisplay>
+    </div>
+  );
 }
 
 export default TodoSearch;

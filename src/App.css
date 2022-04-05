@@ -7,33 +7,32 @@
 }
 
 body {
-  background: linear-gradient(
-    90deg,
-    rgba(48, 16, 255, 1) 0%,
-    rgba(100, 115, 255, 1) 100%
-  );
+  background: lightgray;
 }
 .todo-app {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   background: #161a2b;
   text-align: center;
-  margin: 128px auto;
+  margin: 60px auto;
   border-radius: 10px;
   padding-bottom: 32px;
-  padding-left: 100px;
+}
+
+.header {
+    order: 1;
+    background: red;
+}
+
+.content {
+    order: 2
 }
 
 h1 {
   margin: 32px 0;
   color: #fff;
   font-size: 24px;
-}
-
-.complete {
-  text-decoration: line-through;
-  opacity: 0.4;
 }
 
 .todo-form {
@@ -56,8 +55,9 @@ h1 {
 
 .todo-button {
   padding: 16px;
+  margin: 8px;
   border: none;
-  border-radius: 0 4px 4px 0;
+  border-radius: 30%;
   cursor: pointer;
   outline: none;
   background: linear-gradient(
@@ -105,28 +105,12 @@ h1 {
   width: 90%;
 }
 
-.todo-row:nth-child(4n + 1) {
-  background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  );
+.todo-row {
+  background: lightgreen; 
 }
 
-.todo-row:nth-child(4n + 2) {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 12, 241, 1) 0%,
-    rgba(250, 0, 135, 1) 100%
-  );
-}
-
-.todo-row:nth-child(4n + 3) {
-  background: linear-gradient(
-    90deg,
-    rgba(20, 159, 255, 1) 0%,
-    rgba(17, 122, 255, 1) 100%
-  );
+.todo-row1{
+    background: lightseagreen;
 }
 
 .icons {

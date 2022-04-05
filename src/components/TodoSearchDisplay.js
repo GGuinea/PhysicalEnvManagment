@@ -11,20 +11,20 @@ function TodoSearchDisplay({ todos }) {
   };
 
   const [isOpen, setIsOpen] = useState(false);
-const list = todos.map((todo, index) => 
-     <div className="todo-row" key={index}>
+  const list = todos.map((todo, index) => (
+    <div className="todo-row" key={index}>
       <div key={todo.id} onClick={() => handleClickOpen(todo)}>
         {todo.text}
       </div>
     </div>
-)
+  ));
 
-return (
-<div>
-    {list}
+  return (
+    <div>
+      {list}
       {isOpen && <Modal setOpenModal={setIsOpen} todoItem={todoItem} />}
-</div>
-)
+    </div>
+  );
 }
 
 export default TodoSearchDisplay;

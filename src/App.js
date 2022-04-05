@@ -6,8 +6,11 @@ import TodoSearch from "./components/TodoSearch";
 function App() {
   return (
     <div className="todo-app">
-      <TodoList></TodoList>
-      <TodoSearch></TodoSearch>
+        <div className="header">
+        </div>
+        <div className="content">
+            <TodoSearch></TodoSearch>
+        </div>
     </div>
   );
 }
