@@ -13,9 +13,11 @@ function TodoSearchDisplay({ todos }) {
   const [isOpen, setIsOpen] = useState(false);
   const list = todos.map((todo, index) => (
     <div key={index}>
-      <div key={todo.id} onClick={() => handleClickOpen(todo)}>
-        {todo.text}
-      </div>
+        <div key={todo.id} className="simpleBorder" onClick={() => handleClickOpen(todo)}>
+            <div>
+                {todo.text}
+            </div>
+        </div>
     </div>
   ));
 

@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 12px;
+    height: 90vh;
 }
 
 .modalContainer {
@@ -25,6 +26,17 @@
   text-align: center;
   margin-top: 10px;
 }
+.modalContainer .user{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.modalContainer .commentInput{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
 
 .titleCloseBtn {
   display: flex;
@@ -46,10 +58,10 @@
 }
 
 .modalContainer .footer {
-  flex: 20%;
+  flex: 30%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
 }
 
 .modalContainer .footer button {
@@ -63,7 +75,50 @@
   font-size: 20px;
   cursor: pointer;
 }
+.envContainer {
+    display: flex;
+    flex-direction: row;
+    height: 30vh;
+}
+
+.historyContainer {
+    display: flex;
+    flex-direction: row;
+    height: 20vh;
+    overflow-y: scroll;
+    border: 2px solid green;
+    margin-top: 5px;
+}
+
+.centerComp {
+    width: 20%;
+    align-items: center;
+}
+
+.envInfo{
+    margin-right: 10px;
+    flex: 50%;
+    overflow-y: scroll;
+    border: 2px solid green;
+}
+
+.comments {
+    margin-left: 10px;
+    flex: 50%;
+    overflow-y: scroll;
+    border: 2px solid green;
+}
+
+.envEntry {
+
+}
 
 #cancelBtn {
   background-color: crimson;
+}
+.simpleBorder {
+    border: 2px solid green;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 10px;
 }
