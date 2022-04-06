@@ -29,27 +29,45 @@ function ButtonPanel(props) {
 
   return (
     <>
-<nav class="navbar navbar-light bg-light">
-  <form class="container-fluid justify-content-center">
-    <button class="btn btn-outline-success me-2" type="button">MK</button>
-    <button class="btn btn-outline-success me-2" type="button">KASY</button>
-    <button class="btn btn-outline-success me-2" type="button">WSZYSTKO</button>
-  </form>
-</nav>
-<nav class="navbar navbar-light bg-light">
-  <form class="container-fluid justify-content-center">
-    <button class="btn btn-outline-success me-2" type="button">WAWA</button>
-    <button class="btn btn-outline-success me-2" type="button">RYBNIK</button>
-    <button class="btn btn-outline-success me-2" type="button">WSZYSTKO</button>
-  </form>
-</nav>
-<nav class="navbar navbar-light bg-light">
-  <form class="container-fluid justify-content-center">
-    <button class="btn btn-outline-success me-2" type="button">WOLNE</button>
-    <button class="btn btn-outline-success me-2" type="button">ZAJETE</button>
-    <button class="btn btn-outline-success me-2" type="button">WSZYSTKO</button>
-  </form>
-</nav>
+      <nav class="navbar navbar-light bg-light">
+        <form class="container-fluid justify-content-center">
+          <button class="btn btn-outline-success me-2" type="button">
+            MK
+          </button>
+          <button class="btn btn-outline-success me-2" type="button">
+            KASY
+          </button>
+          <button class="btn btn-outline-success me-2" type="button">
+            WSZYSTKO
+          </button>
+        </form>
+      </nav>
+      <nav class="navbar navbar-light bg-light">
+        <form class="container-fluid justify-content-center">
+          <button class="btn btn-outline-success me-2" type="button">
+            WAWA
+          </button>
+          <button class="btn btn-outline-success me-2" type="button">
+            RYBNIK
+          </button>
+          <button class="btn btn-outline-success me-2" type="button">
+            WSZYSTKO
+          </button>
+        </form>
+      </nav>
+      <nav class="navbar navbar-light bg-light">
+        <form class="container-fluid justify-content-center">
+          <button class="btn btn-outline-success me-2" type="button">
+            WOLNE
+          </button>
+          <button class="btn btn-outline-success me-2" type="button">
+            ZAJETE
+          </button>
+          <button class="btn btn-outline-success me-2" type="button">
+            WSZYSTKO
+          </button>
+        </form>
+      </nav>
     </>
   );
 }

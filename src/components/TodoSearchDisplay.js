@@ -13,11 +13,24 @@ function TodoSearchDisplay({ todos }) {
   const [isOpen, setIsOpen] = useState(false);
   const list = todos.map((todo, index) => (
     <div key={index}>
-        <div key={todo.id} className="simpleBorder" onClick={() => handleClickOpen(todo)}>
-            <div>
-                {todo.text}
-            </div>
+      <div key={todo.id} className={todo.isReservred === true ? "simpleBorderReserved" : "simpleBorder"}>
+        <div>
+          <div class="hstack gap-3">
+            <button
+              class="btn btn-outline-success me-2"
+              type="button"
+              onClick={() => handleClickOpen(todo)}
+            >
+              OTWÓRZ
+            </button>
+            <div class="bg-light border">{todo.text}</div>
+            <div class="bg-light border">{todo.destination}</div>
+            <div class="bg-light border">{todo.ip}</div>
+            <div class="bg-light border ms-auto">{todo.reservedTo}</div>
+            <div class="bg-light border ">{todo.reservedTill}</div>
+          </div>
         </div>
+      </div>
     </div>
   ));
 
