@@ -17,7 +17,7 @@ function TodoSearch() {
     ip: "192.168.0.1",
     isReservred: true,
     reservedTo: "Kamil Zielinski",
-    reservedTill: "23:30:00",
+    reservedTill: "2022-04-08T10:30:10",
   });
   receivedTodos.push({
     id: 1,
@@ -26,6 +26,7 @@ function TodoSearch() {
     text: "wawa-2",
     destination: "inpost",
     ip: "192.168.0.1",
+    reservedTill: "2022-04-08T23:30:10",
   });
   receivedTodos.push({
     id: 2,
@@ -34,6 +35,7 @@ function TodoSearch() {
     text: "wawa-2-kasa-2",
     destination: "inpost",
     ip: "192.168.0.1",
+    reservedTill: "2022-04-08T23:30:10",
   });
   receivedTodos.push({
     id: 3,
@@ -43,6 +45,7 @@ function TodoSearch() {
     destination: "inpost",
     ip: "192.168.0.1",
     isReservred: true,
+    reservedTill: "2022-04-08T23:30:10",
   });
   receivedTodos.push({
     id: 4,
@@ -52,6 +55,7 @@ function TodoSearch() {
     destination: "bilety",
     ip: "192.168.0.1",
     isReservred: false,
+    reservedTill: "2022-04-08T23:30:10",
   });
   const filtr = { filtrType: 0 };
 
