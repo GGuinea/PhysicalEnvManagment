@@ -13,8 +13,11 @@ function TodoSearchDisplay({ todos }) {
   };
 
   const getTime = (reservedTill) => {
-return new Date(reservedTill).getTime()
+    return new Date(reservedTill).getTime();
   };
+  function isDateBeforeToday(date) {
+    return new Date(date.toDateString()) >= new Date(new Date().toDateString());
+  }
 
   const [isOpen, setIsOpen] = useState(false);
   const list = todos.map((todo, index) => (
@@ -22,7 +25,9 @@ return new Date(reservedTill).getTime()
       <div
         key={todo.id}
         className={
-          todo.isReservred === true ? "simpleBorderReserved" : "simpleBorder"
+          isDateBeforeToday(new Date(todo.reservedTill))
+            ? "simpleBorderReserved"
+            : "simpleBorder"
         }
       >
         <div>

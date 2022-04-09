@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TodoSearchDisplay from "./TodoSearchDisplay";
 import ButtonPanel from "./ButtonPanel";
+import { CONSTANS } from "./Constans";
 
 function TodoSearch() {
   const [constat, setConstatnt] = useState([]);
@@ -15,9 +16,8 @@ function TodoSearch() {
     text: "wawa-1",
     destination: "inpost",
     ip: "192.168.0.1",
-    isReservred: true,
     reservedTo: "Kamil Zielinski",
-    reservedTill: "2022-04-08T10:30:10",
+    reservedTill: "2022-04-10T10:30:10",
   });
   receivedTodos.push({
     id: 1,
@@ -44,7 +44,6 @@ function TodoSearch() {
     text: "wawa-2-kasa-1",
     destination: "inpost",
     ip: "192.168.0.1",
-    isReservred: true,
     reservedTill: "2022-04-08T23:30:10",
   });
   receivedTodos.push({
@@ -54,7 +53,6 @@ function TodoSearch() {
     text: "rybnik-1",
     destination: "bilety",
     ip: "192.168.0.1",
-    isReservred: false,
     reservedTill: "2022-04-08T23:30:10",
   });
   const filtr = { filtrType: 0 };
@@ -84,13 +82,26 @@ function TodoSearch() {
 
   useEffect(() => {
     console.log(authority);
-
-    localStorage.setItem("authority", authority);
+    if (authority.length > 5) {
+      localStorage.setItem(CONSTANS.AUTHORITY, authority);
+    }
   }, [authority]);
   const handleChange = async (e) => {
     setAuthority(e.target.value);
   };
 
+  function ShowBody() {
+    if (isAuthorized) {
+      return (
+        <div>
+          <ButtonPanel handleFilter={handleFilter} filtr={filtr}></ButtonPanel>
+          <TodoSearchDisplay todos={serach}></TodoSearchDisplay>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
   return (
     <div>
       <nav className="navbar navbar-light bg-dark">
@@ -119,8 +130,7 @@ function TodoSearch() {
         </div>
       </nav>
 
-      <ButtonPanel handleFilter={handleFilter} filtr={filtr}></ButtonPanel>
-      <TodoSearchDisplay todos={serach}></TodoSearchDisplay>
+      <ShowBody></ShowBody>
     </div>
   );
 }
